@@ -1,7 +1,7 @@
 NAME = phonebook
 
 INCLUDE = -I.
-SRCS = main.cpp
+SRCS = main.cpp phonebook.cpp contact.cpp
 OBJ = $(SRCS:.cpp=.o)
 
 CXXFLAGS = $(INC)
@@ -20,6 +20,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclea all
+re: fclean all
 
 .PHONY: all clean fclean re
