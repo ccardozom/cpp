@@ -5,9 +5,9 @@
 
 class Contact {
 public:
-	std::string	get_data() const;
-	void	set_data(int id, std::string data);
-	void	get_str(int id) const;
+	std::string		get_data(int id) const;
+	void			get_str(int id) const;
+	void			set_data(int id, std::string data);
 private:
 	std::string	_name;
 	std::string	_last_name;

@@ -1,7 +1,7 @@
-NAME = phonebook
+NAME = tests
 
 INCLUDE = -I.
-SRCS = main.cpp phonebook.cpp contact.cpp
+SRCS = tests.cpp Account.cpp
 OBJ = $(SRCS:.cpp=.o)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 $(INC)
