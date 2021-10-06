@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 11:42:11 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/05 11:08:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/10/06 09:11:04 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ void	search_contact(Phonebook *phonebook)
 
 		print_info(phonebook, index);
 	else
+	{
 		std::cout << "Wrong index" << std::endl;
+		return ;
+	}
+	return ;
 }
 
 void	add_contact(Phonebook *phonebook)
@@ -90,11 +94,10 @@ void	add_contact(Phonebook *phonebook)
 		if (phonebook->get_index_contacts() != MAX_CONTACT)
 			phonebook->set_index_contacts(i + 1);
 		phonebook->set_index_increment(i);
+		if ( phonebook->get_index() == MAX_CONTACT)
+			phonebook->set_index_increment(-1);
 	}
-	else
-	{
-		phonebook->set_index_increment(-1);
-	}
+	return ;
 }
 
 int main(void)
