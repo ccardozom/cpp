@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 11:24:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/13 11:11:05 by ccardozo         ###   ########.fr       */
+/*   Created: 2021/10/13 16:02:44 by ccardozo          #+#    #+#             */
+/*   Updated: 2021/10/13 16:26:02 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie	*newZombie( std::string name );
-void randonChump(std::string name);
-
-int	main(void)
+int main() 
 {
-	Zombie *ptr;
-
-	Zombie z1("zombie1");
-	ptr = newZombie("");
-	if (!ptr)
-		return (-1);
-	randonChump("zombie3");
-
-	delete ptr;
-	return (0);
+    {
+        Weapon        club = Weapon("crude spiked club");
+     
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    {
+        Weapon        club = Weapon("crude spiked club");
+     
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
 }

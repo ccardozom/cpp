@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 11:24:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/13 11:11:05 by ccardozo         ###   ########.fr       */
+/*   Created: 2021/10/13 16:09:49 by ccardozo          #+#    #+#             */
+/*   Updated: 2021/10/13 16:22:54 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie	*newZombie( std::string name );
-void randonChump(std::string name);
-
-int	main(void)
-{
-	Zombie *ptr;
-
-	Zombie z1("zombie1");
-	ptr = newZombie("");
-	if (!ptr)
-		return (-1);
-	randonChump("zombie3");
-
-	delete ptr;
-	return (0);
-}
+class HumanA{
+    public:
+        HumanA(Weapon arma);
+        Weapon arma();
+        void    attack();
+        
+    private:
+        std::string _name;
+};

@@ -6,25 +6,22 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:24:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/13 11:11:05 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/10/13 13:32:06 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*newZombie( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 void randonChump(std::string name);
 
 int	main(void)
 {
 	Zombie *ptr;
 
-	Zombie z1("zombie1");
-	ptr = newZombie("");
+	ptr = zombieHorde(0, "hola");
 	if (!ptr)
 		return (-1);
-	randonChump("zombie3");
-
-	delete ptr;
+	delete [] ptr;
 	return (0);
 }
