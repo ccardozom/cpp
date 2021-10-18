@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 13:14:40 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/14 15:32:38 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/10/15 16:03:13 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon clup) : _name(name), _arma(clup){
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _arma(weapon){
     return ;
 }
 
-void HumanA::attack(){
-    std::cout << this->_name << "attacks with his" << _arma << std::endl;
+void HumanA::attack() const{
+    std::cout << this->_name << " attacks with his " << this->_arma.getType() << std::endl;
     return ;
 }
