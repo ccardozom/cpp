@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:24:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/13 13:32:06 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/10/19 12:46:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 {
 	Zombie *ptr;
 
-	ptr = zombieHorde(0, "hola");
+	ptr = zombieHorde(4, "zombie");
 	if (!ptr)
 		return (-1);
 	delete [] ptr;

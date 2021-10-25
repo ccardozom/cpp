@@ -1,7 +1,7 @@
-NAME = brain
+NAME = weapon
 
 INCLUDE = -I.
-SRCS = main.cpp Weapon.cpp HumanA.cpp
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 CXX = clang++

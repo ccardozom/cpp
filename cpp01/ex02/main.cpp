@@ -8,15 +8,9 @@ int main(void)
 
     std::cout << "Contenido de str: " << str << std::endl;
     std::cout << "Direccion de memoria de str: " << &str << std::endl;
-    std::cout << "Direccion a la que apunta *stringPTR: " << stringPTR << std::endl;
+    std::cout << "Direccion a la que apunta stringPTR: " << stringPTR << std::endl;
     std::cout << "Direccion de memoria de stringREF: " << &stringREF << std::endl;
     std::cout << "Contenido de *stringPTR: " << *stringPTR << std::endl;
     std::cout << "Contenido de &stringREF: " << stringREF << std::endl;
-
-    std::cout << "---* Modificamos el contenido de str utilizando stringREF *----" << std::endl;
-    stringREF = "HI THIS IS MOD";
-    std::cout << "Contenido de str: " << str << std::endl;
-
-
     return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 09:31:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/19 10:44:44 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/10/19 13:07:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 void Karen::debug( void ){
     std::cout << "Me gustaria algo de beacon extra para mi hamburguesa" << std::endl;
-    return ;
 }
 
 void Karen::info( void ){
     std::cout << "No me puedo creer que añadir bacon extra cueste más dinero. No ponéis suficiente. Si lo hicierais no tendría que pedirlo.." << std::endl;
-    return ;
 }
 
 void Karen::warning( void ){
     std::cout << "Creo que me merezco algon más de bacon gratis. LLevo viniendo años y tu empezaste a trabajar aquí el mes pasado" << std::endl;
-    return ;
 }
 
 void Karen::error( void ){
     std::cout << "Esto es inaceptable. Quiero hablar con el responsable ahora mismo.." << std::endl;
-    return ;
 }
 
 void Karen::complain(std::string level){
@@ -54,5 +50,4 @@ void Karen::complain(std::string level){
 	case 3:
 		this->error();
 	}
-	return ;
 }

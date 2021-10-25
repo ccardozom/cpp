@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = zombiehorde
 
 INCLUDE = -I.
 SRCS = main.cpp Zombie.cpp zombiehorde.cpp
