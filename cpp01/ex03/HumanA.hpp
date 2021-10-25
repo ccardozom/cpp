@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 16:09:49 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/15 10:46:07 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/10/18 11:20:06 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_A_HPP
-#define HUMAN_A_HPP
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 

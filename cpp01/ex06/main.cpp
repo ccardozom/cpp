@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 16:16:48 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/18 11:49:20 by ccardozo         ###   ########.fr       */
+/*   Created: 2021/10/19 09:31:50 by ccardozo          #+#    #+#             */
+/*   Updated: 2021/10/19 10:45:16 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#include "Karen.hpp"
 
-#include "Weapon.hpp"
+int main()
+{
+    Karen karen;
 
-class HumanB{
-    public:
-        HumanB(std::string name);
-        void    setWeapon(Weapon &weapon);
-        void    attack() const;
-        
-    private:
-        std::string _name;
-        Weapon *_arma;
-};
-
-#endif
+    //karen.complain("DEBUG");
+    //karen.complain("INFO");
+    //karen.complain("WARNING");
+    karen.complain("ERROR");
+    return (0);
+}

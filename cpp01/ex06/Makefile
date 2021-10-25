@@ -1,16 +1,16 @@
-NAME = brain
+NAME = karenFilter
 
-INCLUDE = -I.
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp Karen.cpp
 OBJS = $(SRCS:.cpp=.o)
+INCLUDE = -I.
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 CXX = clang++
 RM = rm -f
 
-$(NAME) : $(OBJS)
-	$(CXX) $(CXXFLAGS) $(INCLUDE) $^ -o $@
-
 all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) $^ -o $@
 
 clean:
 	$(RM) $(OBJS)

@@ -9,8 +9,8 @@ int	Account::_totalNbWithdrawals = 0;
 
 Account::Account( int initial_deposit ) : _accountIndex(Account::_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0){
 	this->_totalAmount += this->_amount;
-	Account::_nbAccounts++;
-	Account::_displayTimestamp();
+	_nbAccounts++;
+	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex;
 	std::cout << ";amount:" << this->_amount;
 	std::cout << ";created" << std::endl;

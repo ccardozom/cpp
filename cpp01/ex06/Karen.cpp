@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 18:44:55 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/19 09:15:08 by ccardozo         ###   ########.fr       */
+/*   Created: 2021/10/19 09:31:37 by ccardozo          #+#    #+#             */
+/*   Updated: 2021/10/19 10:44:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,26 @@ void Karen::error( void ){
 }
 
 void Karen::complain(std::string level){
-    void    (Karen::*f[4])() = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
     std::string fstr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-    for(int i = 0; i < 4; i++)
+    int i;
+    
+    for(i = 0; i < 4; i++)
     {
         if (!fstr[i].compare(level))
-            (this->*f[i])();
-    }
-    return ;
+            break;
+	}
+	switch (i) {
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		break;
+	case 0:
+		this->debug();
+	case 1:
+		this->info();
+	case 2:
+		this->warning();
+	case 3:
+		this->error();
+	}
+	return ;
 }
