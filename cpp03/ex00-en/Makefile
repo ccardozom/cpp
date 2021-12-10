@@ -1,6 +1,6 @@
-NAME = open
+NAME = ClapTrap
 
-SRCS = main.cpp FragTrap.cpp
+SRCS = main.cpp ClapTrap.cpp
 INCLUDE = -I.
 OBJS = $(SRCS:.cpp=.o)
 CXX = clang++
