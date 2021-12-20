@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 10:54:48 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/10/26 11:29:54 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/12/20 08:40:32 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,20 @@ Fixed::Fixed(){
     _num = 0;
 }
 
+Fixed::Fixed(const Fixed &a){
+    std::cout << "Copy constructor called" << std::endl;
+    *this = a;
+}
+
 Fixed::~Fixed(){
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &a){
-    std::cout << "Copy constructor called" << std::endl;
-    *this = a;
+Fixed &Fixed::operator=(Fixed const &a){
+    std::cout << "Assignation operator called" << std::endl;
+    if (this != &a)
+        this->_num = a.getRawBits();
+    return *this;
 }
 
 Fixed::Fixed(int const num_int){
@@ -39,12 +46,6 @@ Fixed::Fixed(float const num_float){
     this->_num = (int)(roundf(num_float * (1 << Fixed::_bits) ));
 }
  
-Fixed &Fixed::operator=(Fixed const &a){
-    std::cout << "Assignation operator called" << std::endl;
-    if (this != &a)
-        this->_num = a.getRawBits();
-    return *this;
-}
 
 float Fixed::toFloat() const{
     return (float)this->_num / (float)(1 << Fixed::_bits);

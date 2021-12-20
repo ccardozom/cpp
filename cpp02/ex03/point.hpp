@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 09:25:31 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/11/12 09:39:22 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/12/20 09:56:00 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef POINT_HPP
 #define POINT_HPP
+
+#include "Fixed.hpp"
+#include <iostream>
 
 class Point{
     public:
@@ -21,12 +24,13 @@ class Point{
         ~Point();
 
         Point &operator=(Point const &);
+
         float getX() const;
         float getY() const;
 
     private:
-        float _x;
-        float _y;
+        Fixed const _x;
+        Fixed const _y;
 };
 
 #endif

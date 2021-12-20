@@ -1,10 +1,10 @@
 NAME = point
 
-SRCS = main.cpp point.cpp check_point.cpp
+SRCS = main.cpp point.cpp check_point.cpp Fixed.cpp
 INCLUDE = -I.
 OBJS = $(SRCS:.cpp=.o)
 CXX = clang++
-CXXFLAGS = -Werror -Wextra -Wall -std=c++98 $(INCLUDE)
+CXXFLAGS = -Werror -Wextra -Wall -std=c++98 -g $(INCLUDE)
 RM = rm -rf
 
 all: $(NAME)

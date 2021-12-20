@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 10:26:50 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/11/04 18:25:52 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/12/20 09:04:49 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,12 @@ int main( void )
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
+    
+    Fixed diez(10), dos(2);
+    std::cout << diez / dos << std::endl;
+    std::cout << diez * dos << std::endl;
+    std::cout << diez - dos << std::endl;
+    std::cout << diez + dos << std::endl;
+    
     return 0;
 }

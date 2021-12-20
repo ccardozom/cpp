@@ -3,26 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 09:25:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/11/12 12:22:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/12/20 12:02:36 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "point.hpp"
-#include <iostream>
-#include <stdio.h>
 
 Point::Point() : _x(0), _y(0){
 }
 
-Point::Point(float const x, float const y){
-    this->_x = x;
-    this->_y = y;
+Point::Point(float const x, float const y) : _x(x), _y(y){
 }
 
-Point::Point(Point const &copy){
+Point::Point(Point const &copy) : _x(copy.getX()), _y(copy.getY()){
     *this = copy;
 }
 
@@ -30,19 +26,16 @@ Point::~Point(){
     
 }
 
-Point &Point::operator=(Point const &robj){
-    if (this != &robj)
-    {
-        this->_x = robj.getX();
-        this->_y = robj.getY();
-    }
+Point &Point::operator=(Point const &src){
+    if (this == &src)
+       return *this;
     return (*this);
 }
 
 float Point::getX() const{
-    return _x;
+    return _x.toFloat();
 }
 
 float Point::getY() const{
-    return _y;
+    return _y.toFloat();
 }

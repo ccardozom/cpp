@@ -1,6 +1,6 @@
 #include "point.hpp"
 
-bool	check_point( Point const a, Point const b, Point const c, Point const point ) {
+bool	bsp( Point const a, Point const b, Point const c, Point const point ) {
 
 	float	w1, w2;
 
