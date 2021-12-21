@@ -1,6 +1,6 @@
 NAME = interfaces
 
-SRCS = main.cpp AMateria.cpp Ice.cpp
+SRCS = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp Materiasource.cpp
 INCLUDE = -I.
 OBJS = $(SRCS:.cpp=.o)
 CXX = clang++
