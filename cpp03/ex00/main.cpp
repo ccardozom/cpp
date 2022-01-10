@@ -3,7 +3,7 @@
 
 int	main( void ) 
 {
-	ClapTrap clap("");
+	ClapTrap clap("Megatron");
 
 	clap.attack("Marvin");
 	clap.takeDamage(1);
