@@ -1,31 +1,35 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(){
-    std::cout << "FragTrap " << _name << " constructor " << std::endl;
+    std::cout << "FragTrap default constructor is called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-    std::cout << "El constructor de FragTrap comienza su labor!!" << std::endl;
+    std::cout << "FragTrap constructor with the name " << name << "is called" << std::endl;
     _hitPoints = 100;
     _energyPoints = 100;
     _attackDamage = 30;
 }
 
 FragTrap::FragTrap(FragTrap const &frag){
-    std::cout << "FragTrap - El constructor copia de " << _name << "ya esta aquí" << std::endl;
-    *this = frag;
+    std::cout << "FragTrap copy constructor is called" << std::endl;
+    this->_name = frag._name;
+    this->_hitPoints = frag._hitPoints;
+    this->_energyPoints = frag._energyPoints;
+    this->_attackDamage = frag._attackDamage;
 }
 
 FragTrap::~FragTrap(){
-    std::cout << "Destructor de FragTrap " << _name << " es lo primero que se llama" << std::endl;
+    std::cout << "FragTrap default destructor is called and " << getName() << " has been destroyed" << std::endl;
 }
 
-FragTrap &FragTrap::operator=(FragTrap const &rhs){
-    if (this != &rhs)
+FragTrap &FragTrap::operator=(FragTrap const &frag){
+    if (this != &frag)
     {
-        _hitPoints = rhs._hitPoints;
-        _energyPoints = rhs._energyPoints;
-        _energyPoints = rhs._energyPoints;
+        this->_name = frag.getName();
+        this->_hitPoints = frag.getHitPoints();
+        this->_energyPoints = frag.getEnergyPoints();
+        this->_attackDamage = frag.getAttackDamage();
     }
     return *this;
 }
@@ -35,5 +39,5 @@ void FragTrap::attack(std::string const &frag){
 }
 
 void FragTrap::highFiveGuys() const{
-    std::cout << "FragTrap " << _name << " choca los 5 y absorve a todos" << std::endl;
+    std::cout << "FragTrap " << _name << " high fives" << std::endl;
 }

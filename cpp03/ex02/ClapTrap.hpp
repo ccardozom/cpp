@@ -21,7 +21,7 @@ class ClapTrap{
         int getEnergyPoints() const;
         int getAttackDamage() const;
         
-    protected: //atributos protegidos para poder heredar
+    protected: //atributos
         int _hitPoints;
         int _energyPoints;
         int _attackDamage;

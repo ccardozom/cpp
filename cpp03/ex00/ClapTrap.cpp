@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(std::string name){
 
 //destructor
 ClapTrap::~ClapTrap(){
-    std::cout << "ClapTrap default destructor is called and " << getName() << "has been destroid" << std::endl;
+    std::cout << "ClapTrap default destructor is called and " << getName() << "has been destroyed" << std::endl;
 }
 
 //constructor copia

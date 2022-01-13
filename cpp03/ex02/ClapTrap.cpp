@@ -2,7 +2,7 @@
 
 //constructor por defecto
 ClapTrap::ClapTrap(){
-    std::cout << "La personalidad comienza con el constructor por defecto de ClapTrap" << std::endl;
+    std::cout << "ClapTrap default constructor is called" << std::endl;
     _hitPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
@@ -11,22 +11,27 @@ ClapTrap::ClapTrap(){
 
 //constructor con una variable
 ClapTrap::ClapTrap(std::string name){
-    std::cout << "La personalidad comienza aquí en el constructor de ClapTrap" << std::endl;
+    if (name.empty())
+        name = "default";
+    std::cout << "ClapTrap constructor whith the name " << name << " is called" << std::endl;
+    _name = name;
     _hitPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
-    _name = name;
 }
 
 //destructor
 ClapTrap::~ClapTrap(){
-    std::cout << "No pierdas el tiempo, ClapTrap " << _name << " ha sido destruido" << std::endl;
+    std::cout << "ClapTrap default destructor is called and " << getName() << " has been destroyed" << std::endl;
 }
 
 //constructor copia
 ClapTrap::ClapTrap(ClapTrap const &clap){
-    std::cout << "Constructor copia del ClapTrap" << std::endl;
-    *this = clap;
+    std::cout << "ClapTrap copy constructor is called" << std::endl;
+    this->_name = clap._name;
+    this->_hitPoints = clap._hitPoints;
+    this->_energyPoints = clap._energyPoints;
+    this->_attackDamage = clap._attackDamage;
 }
 
 //sobrecarga de operador 
@@ -36,27 +41,41 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &clap){
         this->_name = clap.getName();
         this->_hitPoints = clap.getHitPoints();
         this->_energyPoints = clap.getEnergyPoints();
+        this->_attackDamage = clap.getAttackDamage();
     }
     return *this;
 }
 
 void ClapTrap::attack(std::string const &target){
-    std::cout << "ClapTrap " << _name << " ataca a " << target << " causandalo " << _attackDamage << " de daño!" << std::endl;
+    std::cout << "ClapTrap " << getName() << " attack to " << target << " causing " << getAttackDamage() << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-    std::cout << "ClapTrap " << _name << " es atacado y pierde " << amount << " de fuerza! " << std::endl;
-    std::cout << _name << " tenia " << getHitPoints() << " de fuerza! ";
-    if (getHitPoints() > 0)
-        _hitPoints -= amount;
-    std::cout << "Ahora tiene " << _hitPoints << " de fuerza!" << std::endl;
+    if ((int)amount > 0)
+    {
+        std::cout << "ClapTrap " << getName() << " is attacked and loses " << amount << " of hit points! " << std::endl;
+        std::cout << getName() << " had " << getHitPoints() << " of hit points! ";
+         _hitPoints -= amount;
+        if (getHitPoints() < 0)
+            _hitPoints = 0;
+        std::cout << "Now has " << _hitPoints << " of hit points!" << std::endl;
+    }   
+    else
+        std::cout << "Error: is invalid number damage" << std::endl;
+    
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    std::cout << _name << " recupera " << amount << " puntos de energia!" << std::endl;
-    std::cout << getName() << " tenia " << getEnergyPoints() << " de energia.";
-    _energyPoints += amount;
-    std::cout << " Ahora tiene " << getEnergyPoints() << " de energia" << std::endl;
+    if ((int)amount > 0)
+    {
+
+        std::cout << getName() << " recovers " << amount << " of energy points!" << std::endl;
+        std::cout << getName() << " had " << getEnergyPoints() << " of energy points.";
+        _energyPoints += amount;
+        std::cout << "Now has " << getEnergyPoints() << " of energy points" << std::endl;
+    }   
+    else
+        std::cout << "Error: is invalid number to be repair" << std::endl;
 }
 
 std::string ClapTrap::getName() const{
@@ -69,4 +88,8 @@ int ClapTrap::getHitPoints() const{
 
 int ClapTrap::getEnergyPoints() const{
     return _energyPoints;
+}
+
+int ClapTrap::getAttackDamage() const{
+    return _attackDamage;
 }
