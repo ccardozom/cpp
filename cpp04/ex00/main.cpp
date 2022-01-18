@@ -13,25 +13,19 @@ int main()
     const WrongAnimal *w1 = new WrongAnimal();
     const WrongAnimal *w2 = new WrongCat();
 
-    std::cout << meta->getType() << " is an animal ";
-    std::cout << "and his sound is ";
-    meta->makeSound();
+    Animal clon(*i);
+    clon.makeSound();
 
-    std::cout << j->getType() << " is an animal ";
-    std::cout << "and his sound is ";
-    j->makeSound();
+    meta->makeSound(); //Animal class make not sound
 
-    std::cout << i->getType() << " is an animal ";
-    std::cout << "and his sound is ";
-    i->makeSound();
+    j->makeSound(); //Dog class makes a Dog song
 
-    std::cout << w1->getType() << " is a wrong animal ";
-    std::cout << "and his sound is ";
-    w1->makeSound();
+    i->makeSound(); //Cat class makes a Cat song
 
-    std::cout << w2->getType() << " is a wrong animal ";
-    std::cout << "and his sound is ";
-    w2->makeSound();
+    w1->makeSound(); //Wrong Animal song
+
+    w2->makeSound(); //Wrong Cat song 
+
     delete meta;
     delete j;
     delete i;

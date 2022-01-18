@@ -2,14 +2,13 @@
 
 Dog::Dog(){
     std::cout << "Dog constructor has been called" << std::endl;
-    Animal::_type = "Dog";
+    this->Animal::_type = "Dog";
+    _brain = new Brain();
 }
 
-Dog::Dog(Dog const &dog){
+Dog::Dog(Dog const &src){
     std::cout << "Dog copy constructor has been called" << std::endl;
-    *this = dog;
-    _brain = new Brain();
-    Animal::_type = dog._type;
+    this->_type = src.getType();
 }
 
 Dog::~Dog(){
@@ -19,12 +18,13 @@ Dog::~Dog(){
 Dog &Dog::operator=(Dog const &dog){
     if (this != &dog)
     {
-        Animal::_type = dog._type;
-        _brain = new Brain();
+        _type = dog._type;
     }
     return *this;
 }
 
 void Dog::makeSound() const{
+    std::cout << this->getType() << " is an animal ";
+    std::cout << "and his sound is ";
     std::cout << "Woff Woff Woff" << std::endl;
 }

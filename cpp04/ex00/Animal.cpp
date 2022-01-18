@@ -6,7 +6,7 @@ Animal::Animal() : _type("Animal"){
 
 Animal::Animal(Animal const &src){
     std::cout << "Animal copy constructor has been called" << std::endl;
-    *this = src;
+    this->_type = src.getType();
 }
 
 Animal::~Animal(){
@@ -22,7 +22,15 @@ Animal &Animal::operator=(Animal const &ani){
 }
 
 void Animal::makeSound() const{
-    std::cout << "'(-_-)'" << std::endl;
+    std::string type = this->getType();
+    std::cout << this->getType() << " is an animal ";
+    std::cout << "and his sound is ";
+    if (type == "Dog")
+        std::cout << "Woff Woff Woff" << std::endl;
+    else if (type == "Cat")
+        std::cout << "Miauuu Miauuu" << std::endl;
+    else
+        std::cout << "-----" << std::endl;
 }
 
 std::string Animal::getType() const{

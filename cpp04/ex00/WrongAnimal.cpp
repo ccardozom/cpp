@@ -23,6 +23,7 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const &WrongAnimal){
 }
 
 void WrongAnimal::makeSound() const{
+    std::cout << "Is a wrong animal ";
     std::cout << "'(-_-)'" << std::endl;
 }
 

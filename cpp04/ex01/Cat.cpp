@@ -2,14 +2,13 @@
 
 Cat::Cat(){
     std::cout << "Cat constructor has been called" << std::endl;
-    Animal::_type = "Cat";
+    this->Animal::_type = "Cat";
+    _brain = new Brain();
 }
 
-Cat::Cat(Cat const &cat){
+Cat::Cat(Cat const &src){
     std::cout << "Cat copy constructor has been called" << std::endl;
-    *this = cat;
-    _brain = new Brain();
-    Animal::_type = cat._type;
+    *this = src;
 }
 
 Cat::~Cat(){
@@ -19,12 +18,13 @@ Cat::~Cat(){
 Cat &Cat::operator=(Cat const &Cat){
     if (this != &Cat)
     {
-        Animal::_type = Cat._type;
-        _brain = new Brain();
+        _type = Cat._type;
     }
     return *this;
 }
 
 void Cat::makeSound() const{
+    std::cout << this->getType() << " is an animal ";
+    std::cout << "and his sound is ";
     std::cout << "Miauuu Miauuu" << std::endl;
 }
