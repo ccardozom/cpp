@@ -35,7 +35,7 @@ FragTrap &FragTrap::operator=(FragTrap const &frag){
 }
 
 void FragTrap::attack(std::string const &frag){
-    std::cout << "FragTrap " << _name << " ataca a " << frag << ", causandole " << _attackDamage << " de daño!!" << std::endl;
+    std::cout << "FragTrap " << _name << " attack to " << frag << ", causing " << _attackDamage << " points of damage!!" << std::endl;
 }
 
 void FragTrap::highFiveGuys() const{

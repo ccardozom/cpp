@@ -42,5 +42,5 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &diam){
 }
 
 void DiamondTrap::whoAmI() const{
-    std::cout << "I am DiamondTrap" << this->_name << " and ClapTrap " << this->ClapTrap::_name << std::endl;
+    std::cout << "I am DiamondTrap " << this->_name << " and ClapTrap " << this->ClapTrap::_name << std::endl;
 }
