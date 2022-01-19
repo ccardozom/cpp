@@ -3,22 +3,31 @@
 Cat::Cat(){
     std::cout << "Cat constructor has been called" << std::endl;
     this->Animal::_type = "Cat";
-    _brain = new Brain();
+    this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const &src){
+Cat::Cat(Cat const &c){
     std::cout << "Cat copy constructor has been called" << std::endl;
-    *this = src;
+    this->_type = c._type;
+    this->_brain = new Brain();
+    *this->_brain = *c._brain;
 }
 
 Cat::~Cat(){
     std::cout << "Cat destructor has been called" << std::endl;
+    delete _brain;
 }
 
-Cat &Cat::operator=(Cat const &Cat){
-    if (this != &Cat)
+Cat &Cat::operator=(Cat const &cat){
+    if (this != &cat)
     {
-        _type = Cat._type;
+        this->_type = cat._type;
+        if (this->_brain)
+        {
+            delete this->_brain;
+            this->_brain = new Brain;
+            *this->_brain = *cat._brain;
+        }
     }
     return *this;
 }

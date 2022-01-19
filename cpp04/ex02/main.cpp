@@ -10,9 +10,13 @@ int main(){
     Animal *dog = new Dog();
     Animal *cat = new Cat();
 
+    std::cout << "\n" << std::endl;
+
    // A->makeSound();
     dog->makeSound();
     cat->makeSound();
+
+    std::cout << "\n" << std::endl;
 
     delete dog;
     delete cat;

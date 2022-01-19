@@ -7,7 +7,7 @@ Cat::Cat(){
 
 Cat::Cat(Cat const &src){
     std::cout << "Cat copy constructor has been called" << std::endl;
-    *this = src;
+    this->_type = src.getType();
 }
 
 Cat::~Cat(){

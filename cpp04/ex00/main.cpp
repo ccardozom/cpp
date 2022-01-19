@@ -13,18 +13,23 @@ int main()
     const WrongAnimal *w1 = new WrongAnimal();
     const WrongAnimal *w2 = new WrongCat();
 
-    Animal clon(*i);
-    clon.makeSound();
+    std::cout << "\n" << std::endl;
 
-    meta->makeSound(); //Animal class make not sound
+    meta->makeSound(); //Animal class
 
-    j->makeSound(); //Dog class makes a Dog song
+    j->makeSound(); //Dog class
 
-    i->makeSound(); //Cat class makes a Cat song
+    i->makeSound(); //Cat class
 
-    w1->makeSound(); //Wrong Animal song
+    w1->makeSound(); //Wrong Animal
 
-    w2->makeSound(); //Wrong Cat song 
+    w2->makeSound(); //Wrong Cat
+
+    std::cout << "\n" << std::endl;
+
+    Animal copy(*j);
+
+    std::cout << "copy type: " << copy.getType() << std::endl;
 
     delete meta;
     delete j;
