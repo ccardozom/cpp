@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include "AMateria.hpp"
-#include "IMateriasource.hpp"
+#include "IMateriaSource.hpp"
 
-class MateriaSource{
+class MateriaSource : public IMateriaSource{
     public:
         MateriaSource();
         MateriaSource(MateriaSource const &);

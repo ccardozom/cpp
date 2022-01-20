@@ -2,7 +2,6 @@
 
 Ice::Ice() : AMateria("ice"){
     std::cout << "Ice default constructor is called" << std::endl;
-    type = "Ice default";
 }
 
 Ice::Ice(Ice const &copy) : AMateria(copy){
@@ -18,14 +17,13 @@ Ice &Ice::operator=(Ice const &rhs){
     std::cout << "Ice operator= is called" << std::endl;
     if (this != &rhs)
     {
-        type = rhs.type;
+        type = rhs.getType();
     }
     return *this;
 }
 
 AMateria *Ice::clone() const{
-    AMateria *tmp = new Ice(*this);
-    return tmp;
+    return (new Ice(*this));
 }
 
 void Ice::use(ICharacter &target){

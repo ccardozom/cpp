@@ -4,16 +4,19 @@ Character::Character(){
     std::cout << "Character default constructor is called" << std::endl;
 }
 
-Character::Character(Character const &copy){
-    
+Character::Character(Character const &c){
+    std::cout << "Character copy constructor is called" << std::endl;
+    this->_name = c.getName();
+    for (int i = 0; i < 4; i++)
+		this->_inventory[i] = c._inventory[i]->clone();
 }
 
 Character::~Character(){
     std::cout << "Character destructor is called" << std::endl;
     for (int i=0; i<4; i++)
     {
-        if (_inventory[i] != NULL)
-            delete _inventory[i];
+        if (this->_inventory[i] != NULL)
+            delete this->_inventory[i];
     }
 }
 
@@ -27,10 +30,9 @@ Character &Character::operator=(Character const &rhs){
                 delete this->_inventory[i];
         }
         for (int i=0; i<4; i++)
-        {
             this->_inventory[i] = rhs._inventory[i]->clone();
-        }
     }
+    return *this;
 }
 
 Character::Character(std::string name){
