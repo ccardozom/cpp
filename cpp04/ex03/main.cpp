@@ -28,6 +28,9 @@ int main(){
     std::cout << "\n" << std::endl;
 
     ICharacter *bob = new Character("bob");
+
+    std::cout << "\n" << std::endl;
+
     me->use(0, *bob);
     me->use(1, *bob);
 

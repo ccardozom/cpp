@@ -24,6 +24,8 @@ Brain::~Brain(){
 Brain &Brain::operator=(Brain const &br){
     if (this != &br)
     {
+    std::cout << "Brain asignment operator has been called" << std::endl;
+
         for (int i=0; i<100; i++)
             _ideas[i] = br._ideas[i];
     }

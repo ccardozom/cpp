@@ -22,12 +22,9 @@ Cat &Cat::operator=(Cat const &cat){
     if (this != &cat)
     {
         this->_type = cat._type;
-        if (this->_brain)
-        {
-            delete this->_brain;
-            this->_brain = new Brain;
-            *this->_brain = *cat._brain;
-        }
+        delete this->_brain;
+        this->_brain = new Brain;
+        *this->_brain = *cat._brain;
     }
     return *this;
 }

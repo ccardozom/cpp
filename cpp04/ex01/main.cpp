@@ -30,11 +30,14 @@ int main()
 
     std::cout << "\n" << std::endl;
 
-    // Dog basic;
-    // Dog tmp = basic;
+    Cat c;
+    Cat d;
+    d = c;
+    /* Dog basic;
+    Dog tmp = basic;
 
-    // basic.makeSound();
-    // tmp.makeSound();
+    basic.makeSound();
+    tmp.makeSound(); */
 
     return 0;
 }
