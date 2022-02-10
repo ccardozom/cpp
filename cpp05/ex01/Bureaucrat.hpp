@@ -3,9 +3,12 @@
 
 #include <iostream>
 
+class Form;
+
 class Bureaucrat{
     public:
         Bureaucrat();
+        Bureaucrat( const std::string, int);
         Bureaucrat(int);
         ~Bureaucrat();
         Bureaucrat(Bureaucrat const &);
@@ -13,18 +16,20 @@ class Bureaucrat{
 
         class GradeTooHighException : public std::exception{
             public:
-                virtual const char *what() const throw();
+                const char *what() const throw();
         };
 
         class GradeTooLowException : public std::exception{
             public:
-                virtual const char *what() const throw();
+                const char *what() const throw();
         };
+
+        void signForm(Form &);
 
         std::string getName() const;
         int getGrade() const;
-        void incrementGrade(int);
-        void decrementGrade(int);
+        void incrementGrade();
+        void decrementGrade();
 
 
     private:
