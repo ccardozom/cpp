@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(){
 
@@ -10,7 +11,7 @@ int main(){
 		//Form c101("c101", 120, 140);
 		std::cout << bobby << std::endl;
 		//std::cout << c101 << std::endl;
-	//	c101.besigned(bobby);
+	//	c101.besigned(bobby); 
 	}
 	catch(const std::exception &e)
 	{
@@ -19,10 +20,13 @@ int main(){
 
 	std::cout << "\n";
 
-	Bureaucrat Staff(101);
+	Bureaucrat Staff(20);
 	ShrubberyCreationForm bure("home");
+	ShrubberyCreationForm bure1(bure);
+	RobotomyRequestForm Robot("robot");
 
 	bure.ActionExec();
+	Robot.ActionExec();
 
 	std::cout << "Bureaucrat Name: " << Staff.getName() << std::endl;
 	std::cout << "Grade: " << Staff.getGrade() << std::endl;
