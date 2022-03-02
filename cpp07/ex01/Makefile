@@ -1,8 +1,8 @@
-NAME = serialization
+NAME = iter
 
 SRCS = main.cpp 
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++11
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 RM = rm -rf
 

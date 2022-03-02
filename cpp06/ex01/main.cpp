@@ -2,8 +2,7 @@
 #include <cstdint>
 
 struct Data {
-
-	int		i;
+	int i;
 };
 
 uintptr_t	serialize( Data *ptr ) {
@@ -16,16 +15,10 @@ uintptr_t	serialize( Data *ptr ) {
 
 Data	*deserialize( uintptr_t raw ) {
 
-	Data	*dataPtr;
+	Data	*dataPtr;	
 
 	dataPtr = reinterpret_cast<Data *>(raw);
 	return dataPtr;
-}
-
-void	leaks_check( void ) {
-
-	system( "leaks serial" );
-	return ;
 }
 
 int	main( void ) {
@@ -35,12 +28,24 @@ int	main( void ) {
 	Data		*dataPtr2;
 
 	std::cout << "Data ptr: " << dataPtr << std::endl;
+	dataPtr->i = 10;
+	std::cout << "i = " << dataPtr->i << std::endl;
 	raw = serialize( dataPtr );
 	std::cout << "Uint ptr: " << raw << std::endl;
 	dataPtr2 = deserialize( raw );
 	std::cout << "Data ptr: " << dataPtr2 << std::endl;
+	std::cout << "i = " << dataPtr->i << std::endl;
 
 	delete dataPtr;
+
+	/*
+    int* p = new int(65);
+    char* ch = reinterpret_cast<char*>(p);
+    std::cout << *p << std::endl;
+    std::cout << *ch << std::endl;
+    std::cout << p << std::endl;
+    std::cout << ch << std::endl;
+    return 0;*/
 
 	return 0;
 }

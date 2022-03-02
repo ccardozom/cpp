@@ -5,20 +5,18 @@
 void doubleOption(std::string str){
     try
     {
-        float f = static_cast<float>(std::stod(str));
-        if (static_cast<int>(f) >= CHAR_MIN && static_cast<int>(f) <= CHAR_MAX)
-            std::cout << "char: Non displayable" << std::endl;
-        else if (std::isprint(static_cast<int>(f)))
+        double f = static_cast<double>(std::stod(str));
+        if (std::isprint(static_cast<int>(f)))
             std::cout << "char: " << static_cast<char>(f) << std::endl;
+        else if (f >= CHAR_MIN && f <= CHAR_MAX)
+            std::cout << "char: Non displayable" << std::endl;
         else
             std::cout << "char: impossible" << std::endl;
-        if (static_cast<int>(f) >= INT_MIN && static_cast<int>(f) <= INT_MAX)
+        if (f > INT_MIN && f < INT_MAX)
             std::cout << "int: " << static_cast<int>(f) << std::endl;
         else
             std::cout << "int: impossible" << static_cast<char>(f) << std::endl;
-        if (static_cast<int>(f) < FLT_MIN || static_cast<int>(f) > FLT_MAX )
-		    std::cout << "float: impossible" << std::endl;
-	    else if ( f - static_cast<int>(f) == 0 )
+	    if ( f - static_cast<int>(f) == 0 )
 		    std::cout << "float: " << static_cast<float>(f) << ".0f" << std::endl;
 	    else
 		    std::cout << "float: " << static_cast<float>(f) << "f" << std::endl;
@@ -68,10 +66,10 @@ void intOption(std::string str){
     try
     {
         int i = static_cast<int>(std::stoi(str));
-        if (i <= CHAR_MIN && i >= CHAR_MAX)
-            std::cout << "char: Non displayable" << std::endl;
-        else if (std::isprint(i))
+        if (std::isprint(i))
             std::cout << "char: " << static_cast<char>(i) << std::endl;
+        else if (i >= CHAR_MIN && i <= CHAR_MAX)
+            std::cout << "char: Non displayable" << std::endl;
         else
             std::cout << "char: impossible" << std::endl;
         std::cout << "int: " << static_cast<int>(i) << std::endl;
