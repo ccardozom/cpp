@@ -1,139 +1,128 @@
-# include <cctype>
-# include <iostream>
-# include <string>
-# include <cmath>
-# include <cfloat>
-# include <limits>
+#include <iostream>
+#include <climits>
+#include <cfloat>
 
-
-void	caseChar(std::string str)
-{
-	char const c = static_cast<char const>(str[0]);
-	std::cout << "char: " << c << std::endl;
-	std::cout << "int: " << static_cast<int const>(c) << std::endl;
-	std::cout << "float: " << static_cast<float const>(c) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double const>(c) << ".0" << std::endl;
+void doubleOption(std::string str){
+    try
+    {
+        float f = static_cast<float>(std::stod(str));
+        if (static_cast<int>(f) >= CHAR_MIN && static_cast<int>(f) <= CHAR_MAX)
+            std::cout << "char: Non displayable" << std::endl;
+        else if (std::isprint(static_cast<int>(f)))
+            std::cout << "char: " << static_cast<char>(f) << std::endl;
+        else
+            std::cout << "char: impossible" << std::endl;
+        if (static_cast<int>(f) >= INT_MIN && static_cast<int>(f) <= INT_MAX)
+            std::cout << "int: " << static_cast<int>(f) << std::endl;
+        else
+            std::cout << "int: impossible" << static_cast<char>(f) << std::endl;
+        if (static_cast<int>(f) < FLT_MIN || static_cast<int>(f) > FLT_MAX )
+		    std::cout << "float: impossible" << std::endl;
+	    else if ( f - static_cast<int>(f) == 0 )
+		    std::cout << "float: " << static_cast<float>(f) << ".0f" << std::endl;
+	    else
+		    std::cout << "float: " << static_cast<float>(f) << "f" << std::endl;
+        if (f - static_cast<int>(f) == 0)
+            std::cout << "double: " << f << ".0"<< std::endl;
+        else
+            std::cout << "double: " << static_cast<double>(f) << std::endl;
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << e.what() << ": error: out of range\n";
+    }
+    
 }
 
-void	caseInt(std::string str)
-{
-	try
-	{
-		int	const i = static_cast<int const>(std::stoi(str));
-		if (i == 127 || (i >= 0 && i <= 31))
-			std::cout << "char: Non displayable" << std::endl;
-		else if (i > 31 && i < 127)
-			std::cout << "char: " << static_cast<char const>(i) << std::endl;
-		else
-			std::cout << "char: impossible" << std::endl;
-		std::cout << "int: " << i << std::endl;
-		std::cout << "float: " << static_cast<float const>(i) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double const>(i) << ".0" << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << ": error: out_of_range\n";
-		return ;
-	}
+void floatOption(std::string str){
+    try
+    {
+        float f = static_cast<float>(std::stof(str));
+        if (std::isprint(static_cast<int>(f)))
+            std::cout << "char: " << static_cast<char>(f) << std::endl;
+        else if (f >= CHAR_MIN && f <= CHAR_MAX)
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: impossible" << std::endl;
+        if (f >= INT_MIN && f <= INT_MAX)
+            std::cout << "int: " << static_cast<int>(f) << std::endl;
+        else
+            std::cout << "int: impossible" << static_cast<char>(f) << std::endl;
+        if (f - static_cast<int>(f) == 0)
+            std::cout << "float: " << f << ".0f" << std::endl;
+        else
+            std::cout << "float: " << f << "f" << std::endl;
+        if (f - static_cast<int>(f) == 0)
+            std::cout << "double: " << f << ".0"<< std::endl;
+        else
+            std::cout << "double: " << static_cast<double>(f) << std::endl;
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << e.what() << ": error: out of range\n";
+    }
+    
 }
 
-void	caseFloat(std::string str)
-{
-	try
-	{
-		float const f = static_cast<float const>(std::stof(str));
-
-		if (static_cast<int const>(f) == 127 || (static_cast<int const>(f) >= 0 && static_cast<int const>(f) <= 31))
-			std::cout << "char: Non displayable" << std::endl;
-		else if (static_cast<int const>(f) > 31 && static_cast<int const>(f) < 127)
-			std::cout << "char: " << static_cast<char const>(f) << std::endl;
-		else
-			std::cout << "char: impossible" << std::endl;
-
-		if ( static_cast<int const>(f) > std::numeric_limits<int>::min() && static_cast<int const>(f) < std::numeric_limits<int>::max() )
-			std::cout << "int: " << static_cast<int const>(f) << std::endl;
-		else
-			std::cout << "int: impossible" << std::endl;
-
-		if ( f - static_cast<int const>(f) == 0 )
-			std::cout << "float: " << f << ".0f" << std::endl;
-		else
-			std::cout << "float: " << f << "f" << std::endl;
-
-		if ( f - static_cast<int const>(f) == 0 )
-			std::cout << "double: " << f << ".0" << std::endl;
-		else
-			std::cout << "double: " << static_cast<double const>(f) << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << ": error: out_of_range\n";
-		return ;
-	}
+void intOption(std::string str){
+    try
+    {
+        int i = static_cast<int>(std::stoi(str));
+        if (i <= CHAR_MIN && i >= CHAR_MAX)
+            std::cout << "char: Non displayable" << std::endl;
+        else if (std::isprint(i))
+            std::cout << "char: " << static_cast<char>(i) << std::endl;
+        else
+            std::cout << "char: impossible" << std::endl;
+        std::cout << "int: " << static_cast<int>(i) << std::endl;
+        std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << e.what() << ": error: out of range\n";
+    }   
 }
 
-void	caseDouble(std::string str)
-{
-	try
-	{
-		double const d = static_cast<double const>(std::stod(str));
-
-		if (static_cast<int const>(d) == 127 || (static_cast<int const>(d) >= 0 && static_cast<int const>(d) <= 31))
-			std::cout << "char: Non displayable" << std::endl;
-		else if (static_cast<int const>(d) > 31 && static_cast<int const>(d) < 127)
-			std::cout << "char: " << static_cast<char const>(d) << std::endl;
-		else
-			std::cout << "char: impossible" << std::endl;
-
-		if (static_cast<int const>(d) > std::numeric_limits<int>::min() && static_cast<int const>(d) < std::numeric_limits<int>::max())
-			std::cout << "int: " << static_cast<int const>(d) << std::endl;
-		else
-			std::cout << "int: impossible" << std::endl;
-
-		if (d - static_cast<int const>(d) == 0)
-			std::cout << "float: " << d << ".0f" << std::endl;
-		else
-			std::cout << "float: " << static_cast<float const>(d) << "f" << std::endl;
-
-		if (d - static_cast<int const>(d) == 0)
-			std::cout << "double: " << d << ".0" << std::endl;
-		else
-			std::cout << "double: " << d << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << ": error: out_of_range\n";
-		return ;
-	}
+void charOption(std::string str){
+    char c = static_cast<char>(str[0]);
+    std::cout << "char: " << c << std::endl;
+    std::cout << "int: " << static_cast<int>(c) << std::endl;
+    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
 
-int	detectType(std::string str)
-{
-	if (str.size() == 1 && (str[0] < 48 || str[0] > 57))
-		return (1);
-	if (str.find(".") == std::string::npos && str.find("n") == std::string::npos)
-		return (2);
-	if (str[str.size() - 1] == 'f' && str != "-inf" && str != "+inf")
-		return (3);
-	else
-		return (4);
+int detectType(std::string str){
+    int option = 4;
+    if (str.size() == 1 && (str[0] < '0' || str[0] > '9'))
+        option = 1;
+    else if(str.find(".") == std::string::npos && str.find("n") == std::string::npos)
+        option = 2;
+    else if (str[str.size() - 1] == 'f' && str != "-inf" && str != "+inf")
+        option = 3;
+    return option;
 }
 
-int	main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	if (argc < 2 || argc > 2)
-	{
-		std::cout << "Incorrect number of parameters" << std::endl;
-		return (-1);
-	}
-	std::string const str = static_cast<std::string const>(argv[1]);
-	int typeCode = detectType(str);
-	switch (typeCode)
-	{
-		case 1: caseChar(str); break ;
-		case 2: caseInt(str); break ;
-		case 3: caseFloat(str); break ;
-		case 4: caseDouble(str); break ;
-	}
-	return (0);
+    if (argc < 2)
+    {
+        std::cout << "Error: Parameter not found, one is needed" << std::endl;
+        return -1;
+    }
+    else if (argc > 2)
+    {
+        std::cout << "Error: you can send only one parameter" << std::endl;
+        return -1;
+    }
+    std::string str = static_cast<std::string>(argv[1]);
+    int option = detectType(str);
+    switch(option){
+        case 1: charOption(str); break;
+        case 2: intOption(str); break;
+        case 3: floatOption(str); break;
+        case 4: doubleOption(str); break;
+    }
+
+    return 0;
 }
