@@ -1,13 +1,14 @@
 #include "span.hpp"
 
-Span::Span(size_t N){
-    _vec.reserve(N);
+Span::Span(unsigned int N) : _N(N){
+    _vec.reserve(_N);
 }
 
 void Span::addNumber(int value){
     if (_vec.size() >= _vec.capacity())
 		throw ("No more elements can be added. Maximum capacity reached.");
-	_vec.push_back(value);
+	this->_vec.push_back(value);
+	//this->_N++;
 }
 
 int Span::shortestSpan(){

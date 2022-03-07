@@ -1,6 +1,6 @@
 NAME = span
 
-SRCS = main.cpp span.cp
+SRCS = main.cpp span.cpp
 CXX = clang++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = $(SRCS:.cpp=.o)

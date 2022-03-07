@@ -1,15 +1,15 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <iostrea
+#include <iostream>
 #include <vector>
 
 class Span{
     private:
-        size_t _N;
+        unsigned int _N;
         std::vector<int> _vec;
     public:
-        Span(size_t);
+        Span(unsigned int);
 
         void addNumber(int);
         int shortestSpan();

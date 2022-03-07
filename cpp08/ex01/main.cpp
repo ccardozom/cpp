@@ -1,4 +1,4 @@
-#include "span.cpp"
+#include "span.hpp"
 #include <iostream>
 
 int main(){
